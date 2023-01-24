@@ -23,6 +23,13 @@ function collectionOutput() {
     return;
   }
 
+  if (inputCol.value <= 0) {
+    alert(
+      "Некорректные данные, количество значений не может быть меньше или равно 0"
+    );
+    return;
+  }
+
   result.textContent = "";
 
   checkbox.checked
