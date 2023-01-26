@@ -11,9 +11,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./millionaire.css" />
     <title>millionaire</title>
   </head>
   <body>
-    <a href="../index.html">home</a>
+    <a href="../index.html" class="link">home</a>
+    <div class="container">
+      <div class="question">Сколько месяцев в году?</div>
+      <div class="answerOptions">
+        <div class="answer a">A.</div>
+        <div class="answer b">B.</div>
+        <div class="answer c">C.</div>
+        <div class="answer d">D.</div>
+      </div>
+      <button type="button" class="btnAskQuestion">Заждать вопрос</button>
+      <button type="button" class="btnAnswer">Ответ</button>
+    </div>
+    <script type="module" src="./millionaire.js"></script>
   </body>
 </html>
