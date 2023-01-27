@@ -68,5 +68,25 @@
 }
 
 .btn {
+  padding: 6px;
   cursor: pointer;
+  border: 1px solid cornflowerblue;
+  border-radius: 4px;
+}
+
+.btn:active {
+  filter: brightness(50%);
+  background-color: aquamarine;
+}
+
+.btn:not([disabled]):hover {
+  background-color: aquamarine;
+}
+
+.isUse {
+  background-color: darkolivegreen;
+}
+
+.div {
+  margin-top: 20px;
 }

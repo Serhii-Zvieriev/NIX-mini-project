@@ -14,12 +14,15 @@ const btnAskQuestion = document.querySelector(".btnAskQuestion");
 const bankEl = document.querySelector(".bank");
 const yourWinnings = document.querySelector(".yourWinnings");
 const fififtyFififty = document.querySelector(".fififtyFififty");
+const callFriend = document.querySelector(".callFriend");
+const friendRecommends = document.querySelector(".friendRecommends");
 
 let count = 0;
 let key = "";
 let numAnswer = "";
 btnAnswer.disabled = true;
 let useFififtyFififty = false;
+let useCallFriend = false;
 
 // bankEl.textContent = "Ваш банк 0";
 // answerOptions.classList.add("isDisabled"); // не понимаю по чему при нажатии кнопки не могу его удалить
@@ -35,6 +38,9 @@ const clickOnAnswer = (e) => {
   if (!useFififtyFififty) {
     fififtyFififty.disabled = true;
   }
+  if (!useCallFriend) {
+    callFriend.disabled = true;
+  }
 };
 
 function askQuestion() {
@@ -48,10 +54,19 @@ function askQuestion() {
     fififtyFififty.disabled = false;
   }
 
+  if (!useCallFriend) {
+    callFriend.disabled = false;
+  }
+
   if (numAnswer) {
     numAnswer.classList.remove("isAnswer", "isTrue", "isFalse");
   }
+
+  if (useCallFriend) {
+    friendRecommends.textContent = "";
+  }
   answerOptions.classList.remove("isDisabled");
+  btnAskQuestion.disabled = true;
 }
 
 function checkingAnswer() {
@@ -131,6 +146,35 @@ function usingFififtyFififty() {
 
   useFififtyFififty = true;
   fififtyFififty.disabled = true;
+  if (useFififtyFififty) {
+    fififtyFififty.classList.add("isUse");
+  }
+}
+
+function usingCallFriend() {
+  const answer = getRandomInt(0, 3);
+
+  switch (answer) {
+    case 0:
+      friendRecommends.textContent = "Друг рекомендует первый вариант ответа";
+      break;
+    case 1:
+      friendRecommends.textContent = "Друг рекомендует второй вариант ответа";
+      break;
+    case 2:
+      friendRecommends.textContent = "Друг рекомендует третий вариант ответа";
+      break;
+    case 3:
+      friendRecommends.textContent =
+        "Друг рекомендует четвертый вариант ответа";
+      break;
+  }
+
+  useCallFriend = true;
+  callFriend.disabled = true;
+  if (useCallFriend) {
+    callFriend.classList.add("isUse");
+  }
 }
 
 function getRandomInt(min, max) {
@@ -138,9 +182,9 @@ function getRandomInt(min, max) {
 }
 
 function getRandomIntNoDefiniteValues(min, max, value) {
-  let fff = getRandomInt(min, max);
-  if (fff !== value) {
-    return fff;
+  let rndNum = getRandomInt(min, max);
+  if (rndNum !== value) {
+    return rndNum;
   } else {
     getRandomIntNoDefiniteValues(min, max, value);
   }
@@ -151,3 +195,4 @@ answerOptions.onclick = clickOnAnswer;
 btnAskQuestion.onclick = askQuestion;
 btnAnswer.onclick = checkingAnswer;
 fififtyFififty.onclick = usingFififtyFififty;
+callFriend.onclick = usingCallFriend;
