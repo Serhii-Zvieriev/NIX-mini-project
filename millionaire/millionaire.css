@@ -50,3 +50,23 @@
 .answer:active {
   filter: brightness(50%);
 }
+
+.isAnswer {
+  background-color: cornflowerblue;
+}
+
+.isDisabled {
+  pointer-events: none;
+}
+
+.isTrue {
+  background-color: seagreen;
+}
+
+.isFalse {
+  background-color: crimson;
+}
+
+.btn {
+  cursor: pointer;
+}
