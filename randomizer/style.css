@@ -29,5 +29,9 @@ label {
 }
 
 .result {
-  display: inline-block;
+  /* display: inline-block; */
+  /* white-space: pre-wrap; */
+  /* overflow: auto; */
+  /* hyphens: auto; */
+  word-wrap: break-word;
 }

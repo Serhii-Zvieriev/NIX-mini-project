@@ -8,23 +8,26 @@ const result = document.querySelector(".result");
 btn.addEventListener("click", collectionOutput);
 
 function collectionOutput() {
+  let arrNum = null;
   result.textContent = "";
 
   if (errorChecking(inputMin, inputMax, inputCol)) {
     return;
   }
-
   checkbox.checked
-    ? (result.textContent = getUniqueCollection(
+    ? (arrNum = getUniqueCollection(
         inputMin.value,
         inputMax.value,
         inputCol.value
       ))
-    : (result.textContent = getCollection(
-        inputMin.value,
-        inputMax.value,
-        inputCol.value
-      ));
+    : (arrNum = getCollection(inputMin.value, inputMax.value, inputCol.value));
+
+  if (arrNum.length > 100) {
+    alert("количество значений не может привышать 100");
+    result.textContent = arrNum.slice(0, 99).join(", ");
+  } else {
+    result.textContent = arrNum.join(", ");
+  }
 }
 
 function errorChecking(inputMin, inputMax, inputCol) {
