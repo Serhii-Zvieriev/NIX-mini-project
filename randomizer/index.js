@@ -23,6 +23,9 @@ function collectionOutput() {
     : (arrNum = getCollection(inputMin.value, inputMax.value, inputCol.value));
 
   if (arrNum.length > 100) {
+    // я сделал чтобы выдавало предупреждение про количество нужных чисел
+    //и после чего уменьшало количество значений до 100 и выводило их
+    //как по мне так user experience будет на высоком уровне
     alert("количество значений не может привышать 100");
     result.textContent = arrNum.slice(0, 99).join(", ");
   } else {

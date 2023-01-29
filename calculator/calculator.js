@@ -18,31 +18,11 @@ function clearAll() {
   calcScreen.textContent = 0;
 }
 
-// function plusMinus() {
-//   if (secondNumber === "") {
-//     firstNumber *= -1;
-//     calcScreen.textContent = firstNumber;
-//   } else {
-//     secondNumber *= -1;
-//     calcScreen.textContent = secondNumber;
-//   }
-// }
-/*if (e.target.classList.contains("+/-")) {
-    if (secondNumber === "") {
-      firstNumber *= -1;
-      calcScreen.textContent = secondNumber;
-    } else {
-      secondNumber *= -1;
-    }
-  } */
-// document.querySelector(".plus-minus").onclick = plusMinus;
-
 document.querySelector(".ac").onclick = clearAll;
 
 document.querySelector(".buttons").onclick = (e) => {
   if (!e.target.classList.contains("btn")) return;
   if (e.target.classList.contains("ac")) return;
-  if (e.target.classList.contains("+/-")) return;
 
   calcScreen.textContent = 0;
   const key = e.target.textContent;
@@ -181,3 +161,6 @@ class Сalculator {
     }
   }
 }
+
+//было плохой идеей хранить числа как строки, и делать кнопки divами, если бы пришлось еще раз писать калькулятор
+//я бы хранил числа в виде чисел в массиве, и кнопки сделал кнопками =(

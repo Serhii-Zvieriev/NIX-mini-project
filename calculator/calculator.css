@@ -26,6 +26,7 @@
 .calc {
   width: 300px;
   height: 500px;
+  overflow: hidden;
   border-radius: 20px;
   background: var(--main-bg-color);
   color: #fff;
